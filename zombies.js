@@ -257,6 +257,21 @@ Player.prototype.equip = function(itemToEquip){
  * @name eat
  * @param {Food} itemToEat  The food item to eat.
  */
+Player.prototype.eat = function(itemToEat){
+//confirm that player is eating food and that pack has food
+  if(itemToEat instanceof Food && this.getPack().indexOf(itemToEat) !== -1){
+
+//food increases health level
+//if energy amount is more than player's health, set to max health 
+//otherwise set player's health to food energy 
+    this.health += itemToEat.energy;
+    if(this.health > this.getMaxHealth()){
+      this.health = this.getMaxHealth();
+    }
+    this.discardItem(itemToEat); //removing food item from pack
+  }
+};
+ 
 
 
 /**
