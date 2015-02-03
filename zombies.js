@@ -76,7 +76,6 @@ function Food (name, energy){
  });
 
 
-
 /**
  * Class => Player(name, health, strength, speed)
  * -----------------------------
@@ -99,6 +98,25 @@ function Food (name, energy){
  * @property {method} getMaxHealth         Returns private variable `maxHealth`.
  */
 
+function Player (name, health, strength, speed){
+  var pack = [];
+  this.get_pack = function (){
+    return pack;
+  };
+  var maxHealth = health;
+  this.get_maxHealth = function(){
+    return maxHealth;
+  };
+
+  this.name = name;
+  this.health = health;
+  this.strength = strength;
+  this.speed = speed;
+  this.isAlive = true;
+  this.equipped = false;
+
+
+} 
 
 /**
  * Player Class Method => checkPack()
