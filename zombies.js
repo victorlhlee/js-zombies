@@ -131,11 +131,8 @@ function Player (name, health, strength, speed){
  */
 
 Player.prototype.checkPack = function (){
-  return this.getPack();
-  // if(this.getPack()){
-
-  // }
-
+  console.log(this.getPack());
+  
 };
 
 /**
@@ -228,8 +225,20 @@ Player.prototype.discardItem = function(item){
  * @name equip
  * @param {Weapon} itemToEquip  The weapon item to equip.
  */
+Player.prototype.equip = function(itemToEquip){
+  //confirm if itemToEquip is a weapon and that pack has weapons
+  if(itemToEquip instanceof Weapon && this.getPack().indexOf(itemToEquip) !== -1){
+  //confirm if player has weapon in hand  
+    if(this.equipped instanceof Weapon){
+  //take weapon     
+      this.takeItem(this.equipped);
+    }
+    //
+    this.equipped = itemToEquip; 
+    this.discardItem(itemToEquip);
 
-
+}
+};
 /**
  * Player Class Method => eat(itemToEat)
  * -----------------------------
