@@ -191,6 +191,23 @@ Player.prototype.takeItem = function (item){
  * @return {boolean} true/false     Whether player was able to remove item from pack.
  */
 
+//check to see items in pack, if item is in the pack, remove it with .splice()
+//console.log ('item + "was discarded"');
+//return true
+Player.prototype.discardItem = function(item){
+  var backPack = this.getPack();
+  var itemIndex = backPack.indexOf(item);
+
+  if(itemIndex === -1){
+    console.log('item + "not found"');
+    return false;
+  }else{
+    backPack.splice(itemIndex, 1);
+    console.log ('item + "was discarded"');
+    return true;
+
+  }
+};
 
 /**
  * Player Class Method => equip(itemToEquip)
