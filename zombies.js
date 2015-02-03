@@ -308,6 +308,16 @@ Player.prototype.useItem = function(item){
  * @name equippedWith
  * @return {string/boolean}   Weapon name or false if nothing is equipped.
  */
+Player.prototype.equippedWith = function(){
+//check player's and equipped weapons's name, then print
+//if no weapon, print no weapon  
+  if(this.equipped){
+    return this.equipped.name;
+  }else{
+    console.log("no weapon, helpless!!");
+    return false;
+  }
+};
 
 
 /**
