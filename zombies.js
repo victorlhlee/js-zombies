@@ -100,11 +100,11 @@ function Food (name, energy){
 
 function Player (name, health, strength, speed){
   var pack = [];
-  this.get_pack = function (){
+  this.getPack = function (){
     return pack;
   };
   var maxHealth = health;
-  this.get_maxHealth = function(){
+  this.getMaxHealth = function(){
     return maxHealth;
   };
 
@@ -130,6 +130,13 @@ function Player (name, health, strength, speed){
  * @name checkPack
  */
 
+Player.prototype.checkPack = function (){
+  return this.getPack();
+  // if(this.getPack()){
+
+  // }
+
+};
 
 /**
  * Player Class Method => takeItem(item)
@@ -148,7 +155,15 @@ function Player (name, health, strength, speed){
  * @param {Item/Weapon/Food} item   The item to take.
  * @return {boolean} true/false     Whether player was able to store item in pack.
  */
-
+Player.prototype.takeItem = function (item){
+  //if item is weapon or food and the pack is less than 3, add item into the pack
+  if(item instanceof Item && this.getPack().length < 3){
+  //push item into pack  
+    this.getPack().push(item);
+    console.log(item);
+  }
+  return false;
+};
 
 /**
  * Player Class Method => discardItem(item)
